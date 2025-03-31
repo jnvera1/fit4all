@@ -30,7 +30,7 @@ class OptionSelector {
       breadcrumbs.className = 'breadcrumbs';
 
       const rootLink = document.createElement('span');
-      rootLink.textContent = 'root';
+      rootLink.textContent = 'inicio';
       rootLink.className = 'breadcrumb-link';
       rootLink.addEventListener('click', () => {
         this.currentPath = [];
@@ -75,13 +75,6 @@ class OptionSelector {
         optionPrice.className = 'option-price';
         optionPrice.textContent = `(+${childNode.price} EUR)`;
         optionBox.appendChild(optionPrice);
-      }
-
-      if (!isLeaf) {
-        const expandIcon = document.createElement('div');
-        expandIcon.className = 'expand-icon';
-        expandIcon.textContent = '+';
-        optionBox.appendChild(expandIcon);
       }
 
       if (this.selections.has(pathStr)) {

@@ -231,22 +231,6 @@
   position: relative;
 }
 
-.option-box.has-children .expand-icon {
-  font-weight: bold;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  border-radius: 50%;
-  border: 1px solid #575555;
-  background: none;
-  color: #666;
-  cursor: pointer;
-  position: absolute;
-  bottom: -5px;
-  left: 94%;
-  transform: translateX(-50%);
-  text-align: center;
-}
 .option-box.selected {
   font-weight: bold;
   background-color: #f0f0f0;

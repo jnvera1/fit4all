@@ -21,7 +21,7 @@ front.addOption("velcro", 3);
 front.addOption("magnético", 8);
 
 const pockets = root.addOption("Bolsillos");
-pockets.addOption("internos");
+pockets.addOption("internos, 4");
 
 const completeImages = [
   "img/bomber/bomber-completa-frente.jpg",
