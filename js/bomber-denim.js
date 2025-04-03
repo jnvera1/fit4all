@@ -21,16 +21,16 @@ front.addOption("velcro", 3);
 front.addOption("magnético", 8);
 
 const pockets = root.addOption("Bolsillos");
-pockets.addOption("internos, 4");
+pockets.addOption("internos", 4);
 
 const completeImages = [
-  "img/bomber/bomber-completa-frente.jpg",
-  "img/bomber/bomber-completa-espalda.jpg"
+  "img/bomber/original-frente.jpg",
+  "img/bomber/original-espalda.jpg"
 ];
 
 const updatedImages = [
-  "img/bomber/bomber-completa-frente.jpg",
-  "img/bomber/bomber-completa-espalda.jpg"
+  "img/bomber/cierre-frontal-velcro-frente.png",
+  "img/bomber/cierre-frontal-velcro-espalda.jpg"
 ];
 
 const sizeTable = [
@@ -43,5 +43,5 @@ const sizeTable = [
 ];
 
 function openSpecificModal() {
-  openModal(completeImages, updatedImages, sizeTable, root, "img/bomber/bomber-denim-checkout.png");
+  openModal(completeImages, updatedImages, sizeTable, root, "img/bomber/checkout.png");
 }
