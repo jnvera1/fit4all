@@ -20,7 +20,7 @@ front.addOption("cremallera", 5);
 front.addOption("velcro", 3);
 front.addOption("magnético", 8);
 
-const pockets = root.addOption("Bolsillos");
+const pockets = root.addOption("bolsillos");
 pockets.addOption("internos", 4);
 
 const completeImages = [
@@ -29,8 +29,10 @@ const completeImages = [
 ];
 
 const updatedImages = [
-  "img/bomber/cierre-frontal-velcro-frente.png",
-  "img/bomber/cierre-frontal-velcro-espalda.jpg"
+  "img/bomber/cierre-frontal-velcro-bolsillos-internos-frente.png",
+  "img/bomber/cierre-frontal-velcro-bolsillos-internos-espalda.jpg",
+  "img/bomber/cierre-frontal-velcro-bolsillos-internos-interior.png"
+
 ];
 
 const sizeTable = [
