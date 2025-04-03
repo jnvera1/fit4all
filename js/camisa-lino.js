@@ -21,13 +21,17 @@ front.addOption("velcro", 3);
 front.addOption("magnético", 8);
 
 const completeImages = [
-  "img/camisa/camisa-completa-frente.jpg",
-  "img/camisa/camisa-completa-espalda.jpg"
+  "img/camisa/original-frente.jpg",
+  "img/camisa/original-espalda.jpg"
 ];
 
 const updatedImages = [
-  "img/camisa/camisa-modificada-frente.png",
-  "img/camisa/camisa-modificada-espalda.png"
+  "img/camisa/mangas-izquierda-medio-frente.png",
+  "img/camisa/mangas-izquierda-medio-espalda.png",
+  "img/camisa/mangas-izquierda-medio-cierre-frontal-velcro-frente.png",
+  "img/camisa/mangas-izquierda-medio-cierre-frontal-velcro-espalda.png",
+  "img/camisa/mangas-derecha-total-costura-frente.png",
+  "img/camisa/mangas-derecha-total-costura-espalda.png",
 ];
 
 const sizeTable = [
@@ -35,5 +39,5 @@ const sizeTable = [
 ];
 
 function openSpecificModal() {
-  openModal(completeImages, updatedImages, sizeTable, root, "img/camisa/camisa-lino-checkout.png");
+  openModal(completeImages, updatedImages, sizeTable, root, "img/camisa/checkout.png");
 }

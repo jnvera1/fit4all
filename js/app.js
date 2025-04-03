@@ -43,7 +43,7 @@ function openModal(completeImages, updatedImages, sizeTable, optionsTree, checko
         }
       });
 
-      new OptionSelector(optionsTree);
+      let optionsSelector = new OptionSelector(optionsTree);
 
       document.getElementById('apply-btn').addEventListener('click', () => {
         // Show loading state
@@ -64,7 +64,10 @@ function openModal(completeImages, updatedImages, sizeTable, optionsTree, checko
 
         // Simulate AI processing time (2 seconds)
         setTimeout(() => {
-          carouselImages = updatedImages;
+          const selectedOptions = getSelectedOptions(optionsSelector.selections);
+          const filteredImages = filterImagesByOptions(updatedImages, selectedOptions);
+
+          carouselImages = filteredImages.length > 0 ? filteredImages : completeImages;
           carouselImage.src = carouselImages[0];
 
           const priceElement = document.getElementById('price-element');
@@ -155,6 +158,20 @@ function openModal(completeImages, updatedImages, sizeTable, optionsTree, checko
           }
         });
       });
+    });
+}
+
+function getSelectedOptions(selections) {
+    const result = [];
+    for (const key of selections.keys()) {
+        result.push(...key.split('/'));
+    }
+    return result;
+}
+
+function filterImagesByOptions(images, options) {
+    return images.filter(image => {
+        return options.every(option => image.includes(option));
     });
 }
 
