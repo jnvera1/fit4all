@@ -43,7 +43,28 @@ function openModal(completeImages, updatedImages, sizeTable, optionsTree, checko
         }
       });
 
-      let optionsSelector = new OptionSelector(optionsTree);
+        Promise.all([
+            convertImageToBase64(completeImages[0]),
+            convertImageToBase64(completeImages[1])
+        ])
+            .then(([img1, img2]) => {
+                return fetch('/api/verificar', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        imagen1: img1,
+                        imagen2: img2,
+                        opciones: optionsTree
+                    })
+                });
+            })
+            .then(res => res.json())
+            .then(data => {
+                const newOptionsTree = JSON.parse(data.resultado); // si el backend devuelve JSON.stringify(...)
+                let optionsSelector = new OptionSelector(newOptionsTree);
+            });
+
+        //let optionsSelector = new OptionSelector(optionsTree);
 
       document.getElementById('apply-btn').addEventListener('click', () => {
         // Show loading state
@@ -179,3 +200,15 @@ function closeModal() {
   document.getElementById('modal').style.display = 'none';
   document.getElementById('modal-overlay').style.display = 'none';
 }
+
+function convertImageToBase64(url) {
+    return fetch(url)
+        .then(res => res.blob())
+        .then(blob => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result.split(',')[1]); // sacamos "data:image/..."
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        }));
+}
+
