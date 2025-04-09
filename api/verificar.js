@@ -35,6 +35,7 @@ export default async function handler(req, res) {
         });
 
         const data = await response.json();
+        console.log('Respuesta de OpenAI:', data);
         res.status(200).json({ resultado: data.choices?.[0]?.message?.content || 'Sin respuesta' });
     } catch (error) {
         console.error('Error al llamar a OpenAI:', error);
